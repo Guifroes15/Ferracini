@@ -25,7 +25,7 @@ const IMAGES = {
   img19: '/produtos/19.jpg',
 };
 
-// ===== PALETA FERRACINI =====
+// ===== PALETA FERRACINI · EDIÇÃO COPA =====
 const COLORS = {
   // Base premium creme/off-white (vibe Veveli)
   bg: '#F4F0EA',           // creme principal
@@ -35,15 +35,16 @@ const COLORS = {
   // Marca Ferracini
   black: '#1A1A1A',        // preto principal (textos)
   blackSoft: '#2D2D2D',    // preto suave
-  red: '#D9001E',          // vermelho icônico Ferracini
-  redDeep: '#B30018',      // vermelho mais escuro pra hover
-  redSoft: '#FFE8EB',      // vermelho clarinho pra fundos sutis
+  green: '#009C3B',        // verde Seleção Brasileira (substitui o vermelho)
+  greenDeep: '#00782E',    // verde mais escuro pra hover
+  greenSoft: '#E3F5EA',    // verde clarinho pra fundos sutis
+  yellow: '#FFDF00',       // amarelo Seleção Brasileira (detalhes de destaque)
   // Suporte
   textMuted: '#6B6660',
   textSoft: '#8C8680',
   border: '#DDD6C9',
   borderSoft: '#E8E2D5',
-  green: '#25D366',
+  whatsapp: '#25D366',
   gold: '#B8935A',         // dourado discreto pra premium
 };
 
@@ -170,7 +171,7 @@ function TopBar() {
       top: 0,
       zIndex: 100,
     }}>
-      <span style={{ color: COLORS.red }}>♥</span>
+      <span style={{ color: COLORS.green }}>♥</span>
       <span style={{ opacity: 0.7 }}>FALTAM</span>
       <span style={{ color: COLORS.bg, fontWeight: 600 }}>
         {String(t.days).padStart(2,'0')}D · {String(t.hours).padStart(2,'0')}H · {String(t.minutes).padStart(2,'0')}M
@@ -205,7 +206,7 @@ function Header({ greeting = 'Edição Especial' }) {
           marginLeft: 4,
           width: 8,
           height: 2,
-          background: COLORS.red,
+          background: COLORS.green,
           transform: 'rotate(-12deg)',
           display: 'inline-block',
         }} />
@@ -224,7 +225,7 @@ function Header({ greeting = 'Edição Especial' }) {
         fontWeight: 500,
         border: `1px solid ${COLORS.borderSoft}`,
       }}>
-        <span style={{ color: COLORS.red }}>♥</span>
+        <span style={{ color: COLORS.green }}>♥</span>
         {greeting}
       </div>
     </div>
@@ -281,15 +282,15 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
             right: -30,
             width: 180,
             height: 4,
-            background: COLORS.red,
+            background: COLORS.green,
             transform: 'rotate(-25deg)',
             opacity: 0.9,
           }} />
           
           <div style={{
             display: 'inline-block',
-            border: `1px solid ${COLORS.red}`,
-            color: COLORS.red,
+            border: `1px solid ${COLORS.green}`,
+            color: COLORS.green,
             padding: '5px 12px',
             borderRadius: 100,
             fontFamily: "'JetBrains Mono', monospace",
@@ -311,7 +312,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
             marginBottom: 6,
           }}>
             19 modelos selecionados<br/>
-            <span style={{ fontStyle: 'italic', color: COLORS.red }}>pra surpreender</span>
+            <span style={{ fontStyle: 'italic', color: COLORS.green }}>pra surpreender</span>
           </div>
 
           <div style={{
@@ -352,7 +353,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
           onClick={onStart}
           style={{
             padding: '18px 24px',
-            background: COLORS.red,
+            background: COLORS.green,
             border: 'none',
             borderRadius: 14,
             fontFamily: "'Inter', sans-serif",
@@ -364,7 +365,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
             alignItems: 'center',
             justifyContent: 'center',
             gap: 8,
-            boxShadow: `0 8px 24px rgba(217,0,30,0.25)`,
+            boxShadow: `0 8px 24px rgba(0,156,59,0.25)`,
             letterSpacing: '0.02em',
             textTransform: 'uppercase',
           }}
@@ -408,7 +409,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
               letterSpacing: '0.02em',
             }}
           >
-            <span style={{ color: COLORS.red }}>⚡</span> Pra hoje
+            <span style={{ color: COLORS.green }}>⚡</span> Pra hoje
           </button>
         </div>
       </div>
@@ -432,7 +433,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
             padding: '14px 8px',
             textAlign: 'center',
           }}>
-            <div style={{ color: COLORS.red, fontSize: 16, marginBottom: 4 }}>{f.icon}</div>
+            <div style={{ color: COLORS.green, fontSize: 16, marginBottom: 4 }}>{f.icon}</div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{f.title}</div>
             <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>{f.sub}</div>
           </div>
@@ -450,7 +451,7 @@ function StepIndicator({ current, total }) {
         <div key={i} style={{
           width: i === current ? 32 : 8,
           height: 6,
-          background: i <= current ? COLORS.red : COLORS.border,
+          background: i <= current ? COLORS.green : COLORS.border,
           borderRadius: 100,
           transition: 'all 0.3s',
         }} />
@@ -499,7 +500,7 @@ function OptionCard({ selected, onClick, label, desc, emoji }) {
           right: -15,
           width: 80,
           height: 3,
-          background: COLORS.red,
+          background: COLORS.green,
           transform: 'rotate(-25deg)',
         }} />
       )}
@@ -526,11 +527,11 @@ function OptionCard({ selected, onClick, label, desc, emoji }) {
             width: 22,
             height: 22,
             borderRadius: '50%',
-            background: COLORS.red,
+            background: COLORS.yellow,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: COLORS.bg,
+            color: COLORS.black,
             fontSize: 12,
             fontWeight: 700,
           }}>✓</div>
@@ -632,11 +633,11 @@ function ProductCard({ p, featured, onSelect, onWhatsApp }) {
       onClick={() => onSelect(p)}
       style={{
         background: COLORS.bgCard,
-        border: `1.5px solid ${featured ? COLORS.red : COLORS.border}`,
+        border: `1.5px solid ${featured ? COLORS.green : COLORS.border}`,
         borderRadius: 16,
         overflow: 'hidden',
         position: 'relative',
-        boxShadow: featured ? `0 8px 24px rgba(217,0,30,0.15)` : '0 2px 8px rgba(0,0,0,0.04)',
+        boxShadow: featured ? `0 8px 24px rgba(0,156,59,0.15)` : '0 2px 8px rgba(0,0,0,0.04)',
         cursor: 'pointer',
         transition: 'transform 0.15s ease, box-shadow 0.15s ease',
       }}
@@ -648,8 +649,8 @@ function ProductCard({ p, featured, onSelect, onWhatsApp }) {
           position: 'absolute',
           top: 12,
           left: 12,
-          background: COLORS.red,
-          color: COLORS.bg,
+          background: COLORS.yellow,
+          color: COLORS.black,
           padding: '4px 10px',
           borderRadius: 4,
           fontFamily: "'JetBrains Mono', monospace",
@@ -735,7 +736,7 @@ function ProductCard({ p, featured, onSelect, onWhatsApp }) {
           <button
             onClick={(e) => { e.stopPropagation(); onWhatsApp(p); }}
             style={{
-              background: COLORS.red,
+              background: COLORS.green,
               color: COLORS.bg,
               padding: '8px 14px',
               borderRadius: 8,
@@ -871,7 +872,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
               letterSpacing: '0.25em',
-              color: COLORS.red,
+              color: COLORS.green,
               marginBottom: 8,
               textTransform: 'uppercase',
               fontWeight: 600,
@@ -927,7 +928,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                       fontSize: 13,
                       color: COLORS.black,
                     }}>
-                      <span style={{ color: COLORS.red, fontWeight: 700 }}>—</span>
+                      <span style={{ color: COLORS.green, fontWeight: 700 }}>—</span>
                       {d}
                     </div>
                   ))}
@@ -953,7 +954,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 right: -10,
                 width: 60,
                 height: 3,
-                background: COLORS.red,
+                background: COLORS.green,
                 transform: 'rotate(-25deg)',
               }} />
               <div>
@@ -1002,7 +1003,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 alignItems: 'center',
                 gap: 10,
               }}>
-                <div style={{ fontSize: 18, color: COLORS.red }}>✦</div>
+                <div style={{ fontSize: 18, color: COLORS.green }}>✦</div>
                 <div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.03em' }}>Entrega</div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>até 12/06</div>
@@ -1017,7 +1018,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 alignItems: 'center',
                 gap: 10,
               }}>
-                <div style={{ fontSize: 18, color: COLORS.red }}>♥</div>
+                <div style={{ fontSize: 18, color: COLORS.green }}>♥</div>
                 <div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.03em' }}>Embalagem</div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>presente grátis</div>
@@ -1054,7 +1055,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
             style={{
               flex: 1,
               padding: '14px 20px',
-              background: COLORS.green,
+              background: COLORS.whatsapp,
               border: 'none',
               borderRadius: 100,
               fontFamily: "'Inter', sans-serif",
@@ -1155,14 +1156,14 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               right: -15,
               width: 120,
               height: 3,
-              background: COLORS.red,
+              background: COLORS.green,
               transform: 'rotate(-25deg)',
             }} />
             <div style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
               letterSpacing: '0.25em',
-              color: COLORS.red,
+              color: COLORS.green,
               marginBottom: 8,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -1270,13 +1271,13 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               right: -15,
               width: 100,
               height: 3,
-              background: COLORS.red,
+              background: COLORS.green,
               transform: 'rotate(-25deg)',
             }} />
             <div style={{
               width: 50,
               height: 50,
-              background: COLORS.red,
+              background: COLORS.green,
               borderRadius: 12,
               display: 'flex',
               alignItems: 'center',
@@ -1328,7 +1329,7 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
           <button
             onClick={() => handleWhatsApp(null)}
             style={{
-              background: COLORS.green,
+              background: COLORS.whatsapp,
               color: COLORS.bg,
               padding: '14px 28px',
               borderRadius: 100,
