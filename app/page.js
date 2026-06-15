@@ -101,28 +101,6 @@ const WHATSAPP_NUMBER = '5519998650936';
 
 const formatPrice = (p) => p === null ? 'Sob consulta' : `R$ ${p.toFixed(2).replace('.', ',')}`;
 
-// ===== CONTAGEM REGRESSIVA =====
-function useCountdown(targetDate) {
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  useEffect(() => {
-    const tick = () => {
-      const now = new Date();
-      const diff = targetDate - now;
-      if (diff <= 0) { setTime({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
-      setTime({
-        days: Math.floor(diff / 86400000),
-        hours: Math.floor((diff / 3600000) % 24),
-        minutes: Math.floor((diff / 60000) % 60),
-        seconds: Math.floor((diff / 1000) % 60),
-      });
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [targetDate]);
-  return time;
-}
-
 // ===== PLACEHOLDER ELEGANTE PRA FOTO DE PRODUTO =====
 function ProductPlaceholder({ category, large = false }) {
   const icons = { social: '👞', 'esporte-fino': '👞', mocassim: '👞', sapatenis: '👟', sneaker: '👟', bota: '🥾' };
@@ -151,33 +129,16 @@ function ProductPlaceholder({ category, large = false }) {
   );
 }
 
-// ===== TOPBAR CONTAGEM =====
+// ===== TOPBAR · FAIXA COPA =====
 function TopBar() {
-  const target = useMemo(() => new Date('2026-06-12T00:00:00-03:00'), []);
-  const t = useCountdown(target);
   return (
     <div style={{
-      background: COLORS.black,
-      padding: '10px 16px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 8,
-      fontFamily: "'JetBrains Mono', monospace",
-      fontSize: 11,
-      letterSpacing: '0.1em',
-      color: 'rgba(255,255,255,0.85)',
+      height: 6,
+      background: `repeating-linear-gradient(-45deg, ${COLORS.green} 0px, ${COLORS.green} 22px, ${COLORS.yellow} 22px, ${COLORS.yellow} 44px)`,
       position: 'sticky',
       top: 0,
       zIndex: 100,
-    }}>
-      <span style={{ color: COLORS.green }}>♥</span>
-      <span style={{ opacity: 0.7 }}>FALTAM</span>
-      <span style={{ color: COLORS.bg, fontWeight: 600 }}>
-        {String(t.days).padStart(2,'0')}D · {String(t.hours).padStart(2,'0')}H · {String(t.minutes).padStart(2,'0')}M
-      </span>
-      <span style={{ opacity: 0.7 }}>· DIA DOS NAMORADOS</span>
-    </div>
+    }} />
   );
 }
 
@@ -275,22 +236,22 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
           position: 'relative',
           overflow: 'hidden',
         }}>
-          {/* Detalhe vermelho diagonal estilo logo */}
+          {/* Detalhe amarelo diagonal estilo logo */}
           <div style={{
             position: 'absolute',
             top: -20,
             right: -30,
             width: 180,
             height: 4,
-            background: COLORS.green,
+            background: COLORS.yellow,
             transform: 'rotate(-25deg)',
             opacity: 0.9,
           }} />
-          
+
           <div style={{
             display: 'inline-block',
-            border: `1px solid ${COLORS.green}`,
-            color: COLORS.green,
+            border: `1px solid ${COLORS.yellow}`,
+            color: COLORS.yellow,
             padding: '5px 12px',
             borderRadius: 100,
             fontFamily: "'JetBrains Mono', monospace",
@@ -312,7 +273,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
             marginBottom: 6,
           }}>
             19 modelos selecionados<br/>
-            <span style={{ fontStyle: 'italic', color: COLORS.green }}>pra surpreender</span>
+            <span style={{ fontStyle: 'italic', color: COLORS.yellow }}>pra surpreender</span>
           </div>
 
           <div style={{
@@ -492,7 +453,7 @@ function OptionCard({ selected, onClick, label, desc, emoji }) {
         overflow: 'hidden',
       }}
     >
-      {/* Detalhe vermelho diagonal quando selecionado */}
+      {/* Detalhe amarelo diagonal quando selecionado */}
       {selected && (
         <div style={{
           position: 'absolute',
@@ -500,7 +461,7 @@ function OptionCard({ selected, onClick, label, desc, emoji }) {
           right: -15,
           width: 80,
           height: 3,
-          background: COLORS.green,
+          background: COLORS.yellow,
           transform: 'rotate(-25deg)',
         }} />
       )}
@@ -954,7 +915,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 right: -10,
                 width: 60,
                 height: 3,
-                background: COLORS.green,
+                background: COLORS.yellow,
                 transform: 'rotate(-25deg)',
               }} />
               <div>
@@ -1156,14 +1117,14 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               right: -15,
               width: 120,
               height: 3,
-              background: COLORS.green,
+              background: COLORS.yellow,
               transform: 'rotate(-25deg)',
             }} />
             <div style={{
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 10,
               letterSpacing: '0.25em',
-              color: COLORS.green,
+              color: COLORS.yellow,
               marginBottom: 8,
               fontWeight: 600,
               textTransform: 'uppercase',
@@ -1271,13 +1232,13 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               right: -15,
               width: 100,
               height: 3,
-              background: COLORS.green,
+              background: COLORS.yellow,
               transform: 'rotate(-25deg)',
             }} />
             <div style={{
               width: 50,
               height: 50,
-              background: COLORS.green,
+              background: COLORS.yellow,
               borderRadius: 12,
               display: 'flex',
               alignItems: 'center',
