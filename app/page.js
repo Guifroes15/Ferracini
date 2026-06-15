@@ -88,13 +88,13 @@ const CATEGORIES_MAP = {
   mocassim: { label: 'Mocassim', desc: 'Casual chique', icon: '◆' },
   sapatenis: { label: 'Sapatênis', desc: 'Pro dia a dia', icon: '☕' },
   sneaker: { label: 'Sneaker', desc: 'Estilo urbano', icon: '👟' },
-  bota: { label: 'Bota', desc: 'Statement masculino', icon: '🥾' },
+  bota: { label: 'Bota', desc: 'Visual marcante', icon: '🥾' },
 };
 
 const RANGES_MAP = {
-  'ate-380': { label: 'Até R$ 380', desc: 'Carinhoso' },
-  '380-430': { label: 'R$ 380–430', desc: 'Especial' },
-  'acima-430': { label: 'Acima R$ 430', desc: 'Inesquecível' },
+  'ate-380': { label: 'Até R$ 380', desc: 'Essencial' },
+  '380-430': { label: 'R$ 380–430', desc: 'Premium' },
+  'acima-430': { label: 'Acima R$ 430', desc: 'Exclusivo' },
 };
 
 const WHATSAPP_NUMBER = '5519998650936';
@@ -209,7 +209,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
           fontWeight: 700,
           letterSpacing: '-0.025em',
         }}>
-          O charme dele<br/>
+          O seu estilo<br/>
           <span style={{ fontStyle: 'italic', fontWeight: 400 }}>merece</span><br/>
           o melhor.
         </h1>
@@ -223,7 +223,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
           lineHeight: 1.55,
           maxWidth: 340,
         }}>
-          Faça ele se sentir especial. Sapatos selecionados Ferracini Piracicaba para presentear quem você ama.
+          Sapatos selecionados Ferracini Piracicaba. Curadoria rápida pra você encontrar o seu par ideal.
         </p>
       </div>
 
@@ -333,7 +333,7 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
           onMouseDown={e => e.currentTarget.style.transform = 'scale(0.98)'}
           onMouseUp={e => e.currentTarget.style.transform = ''}
         >
-          Encontrar o presente
+          Encontrar meu par
           <span style={{ fontSize: 16 }}>→</span>
         </button>
 
@@ -384,8 +384,8 @@ function HomeScreen({ onStart, onUrgent, onBrowse }) {
       }}>
         {[
           { icon: '✦', title: 'Couro', sub: 'legítimo' },
-          { icon: '♥', title: 'Embalagem', sub: 'presente' },
-          { icon: '✈', title: 'Entrega', sub: 'na data' },
+          { icon: '◆', title: 'Embalagem', sub: 'premium' },
+          { icon: '✈', title: 'Entrega', sub: 'rápida' },
         ].map((f, i) => (
           <div key={i} style={{
             background: COLORS.bgCard,
@@ -859,7 +859,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
               margin: '0 0 24px',
             }}>{product.desc}</p>
 
-            {/* Detalhes técnicos (importante pra público masculino!) */}
+            {/* Detalhes técnicos */}
             {product.details && product.details.length > 0 && (
               <div style={{
                 background: COLORS.bgCard,
@@ -967,7 +967,7 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 <div style={{ fontSize: 18, color: COLORS.green }}>✦</div>
                 <div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.03em' }}>Entrega</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>até 12/06</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>rápida</div>
                 </div>
               </div>
               <div style={{
@@ -979,10 +979,10 @@ function ProductDetailModal({ product, onClose, onWhatsApp }) {
                 alignItems: 'center',
                 gap: 10,
               }}>
-                <div style={{ fontSize: 18, color: COLORS.green }}>♥</div>
+                <div style={{ fontSize: 18, color: COLORS.green }}>◆</div>
                 <div>
                   <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 700, color: COLORS.black, textTransform: 'uppercase', letterSpacing: '0.03em' }}>Embalagem</div>
-                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>presente grátis</div>
+                  <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: COLORS.textMuted }}>premium</div>
                 </div>
               </div>
             </div>
@@ -1067,9 +1067,9 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
 
   const handleWhatsApp = (product) => {
     let intro;
-    if (mode === 'urgente') intro = 'Oi! Vim pelo app da Ferracini Piracicaba 🌟 Preciso de um presente *HOJE* pro Dia dos Namorados.';
+    if (mode === 'urgente') intro = 'Oi! Vim pelo app da Ferracini Piracicaba 🌟 Preciso de um par *HOJE*, com entrega rápida.';
     else if (mode === 'browse') intro = 'Oi! Vim pelo app da Ferracini Piracicaba 🌟 Estava navegando no catálogo.';
-    else intro = 'Oi! Vim pelo app da Ferracini Piracicaba 🌟 Fiz a curadoria e encontrei algumas opções perfeitas pra ele.';
+    else intro = 'Oi! Vim pelo app da Ferracini Piracicaba 🌟 Fiz a curadoria e encontrei algumas opções perfeitas pro meu perfil.';
     
     const detail = product
       ? `\n\nMe interessei especialmente por: *${product.name}* — ${formatPrice(product.price)}`
@@ -1146,7 +1146,7 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               fontSize: 13,
               opacity: 0.7,
             }}>
-              {personaTag} · {matches.length} {matches.length === 1 ? 'peça' : 'peças'} pra ele
+              {personaTag} · {matches.length} {matches.length === 1 ? 'peça' : 'peças'} pra você
             </div>
           </div>
         )}
@@ -1194,7 +1194,7 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               color: COLORS.textMuted,
               margin: '0 0 24px',
             }}>
-              Toda a seleção Ferracini Piracicaba pra ele.
+              Toda a seleção Ferracini Piracicaba pra você.
             </p>
           </>
         )}
@@ -1245,7 +1245,7 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
               justifyContent: 'center',
               fontSize: 24,
               flexShrink: 0,
-            }}>🎁</div>
+            }}>🛍️</div>
             <div style={{ flex: 1 }}>
               <div style={{
                 fontFamily: "'Playfair Display', serif",
@@ -1253,13 +1253,13 @@ function ResultScreen({ filters, onBack, onRestart, mode = 'curadoria', onSelect
                 fontWeight: 700,
                 lineHeight: 1.2,
                 letterSpacing: '-0.01em',
-              }}>Kit Ferracini Especial</div>
+              }}>Compra facilitada</div>
               <div style={{
                 fontFamily: "'Inter', sans-serif",
                 fontSize: 12,
                 opacity: 0.7,
                 marginTop: 2,
-              }}>Sapato + embalagem premium + cartão escrito à mão</div>
+              }}>Embalagem premium + atendimento direto pelo WhatsApp</div>
             </div>
           </div>
         )}
@@ -1366,7 +1366,7 @@ export default function FerraciniApp() {
           <QuizScreen
             step={0} totalSteps={1}
             title="Quanto investir?"
-            subtitle="Selecionamos as melhores peças da faixa pra ele"
+            subtitle="Selecionamos as melhores peças dessa faixa pra você"
             value={filters.range}
             onSelect={handleStep1}
             onBack={() => setScreen('home')}

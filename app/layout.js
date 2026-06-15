@@ -1,9 +1,9 @@
 export const metadata = {
-  title: 'Ferracini Piracicaba · Dia dos Namorados 2026',
-  description: 'O charme dele merece o melhor. Sapatos selecionados Ferracini Piracicaba para presentear quem você ama.',
+  title: 'Ferracini Piracicaba · Coleção 2026',
+  description: 'Sapatos selecionados Ferracini Piracicaba. Curadoria exclusiva pra você encontrar o seu par ideal.',
   openGraph: {
-    title: 'Ferracini Piracicaba · Dia dos Namorados',
-    description: 'O charme dele merece o melhor.',
+    title: 'Ferracini Piracicaba · Coleção 2026',
+    description: 'Curadoria exclusiva pra você encontrar o seu par ideal.',
     type: 'website',
     locale: 'pt_BR',
   },
